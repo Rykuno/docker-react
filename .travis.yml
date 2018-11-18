@@ -5,3 +5,15 @@ before_install:
   - docker build -t rykuno/docker-react -f Dockerfile.dev .
 script: 
   - docker run rykuno/docker-react npm run test -- --coverage
+deploy: 
+  provder: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-west-2-736600220973"
+  bucket_path: "docker-react"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
+  on:
+    branch: master
