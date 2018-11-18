@@ -6,7 +6,7 @@ before_install:
 script: 
   - docker run rykuno/docker-react npm run test -- --coverage
 deploy: 
-  provder: elasticbeanstalk
+  provider: elasticbeanstalk
   region: "us-west-2"
   app: "docker-react"
   env: "DockerReact-env"
